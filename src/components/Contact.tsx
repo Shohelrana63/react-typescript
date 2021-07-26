@@ -3,8 +3,9 @@ import React from 'react';
 interface IPros {
     name: string;
     email?: string;
+    handleRemove: (email: string) => void
 }
-const Contact = ({ name, email = "N/A" }: IPros) => {
+const Contact = ({ name, email = "N/A", handleRemove }: IPros) => {
     return (
         <div className="card">
             <p>
@@ -13,6 +14,7 @@ const Contact = ({ name, email = "N/A" }: IPros) => {
             <p>
                 <strong>Email : </strong>{email}
             </p>
+            <button onClick={() => handleRemove(email)}>Remove Contact</button>
         </div>
     );
 };
